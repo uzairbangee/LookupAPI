@@ -1,0 +1,23 @@
+import { TestCollection } from "./testCollectionsTypes";
+import {
+  ApiType,
+  ApiStatus,
+  ApiVersionStatus,
+  SubscriptionType,
+  ApiSaasType,
+} from "../types";
+
+export const testCollections: TestCollection = {
+  fields: {
+    refreshAccessToken: [
+      {
+        arguments: {
+          input: {
+            accessToken: "Adoree",
+          },
+        },
+        response: "Carita",
+      },
+    ],
+  },
+};

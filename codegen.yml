@@ -1,0 +1,20 @@
+schema: ./graphql/schema.gql
+generates:
+  ./graphql/types.ts:
+    plugins:
+      - typescript
+  ./lambdaLayer/mockApi/types.ts:
+    plugins:
+      - typescript
+  ./lambdaLayer/apis/Api/utils/graphqlSchemaTypes.ts:
+    plugins:
+      - typescript
+  ./lambdaLayer/mockApi/types.ts:
+    plugins:
+      - typescript
+  ./lambdaLayer/apis/utils/graphqlSchemaTypes.ts:
+    plugins:
+      - typescript
+config:
+  declarationKind: 'interface'
+  useImplementingTypes: true

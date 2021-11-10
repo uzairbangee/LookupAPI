@@ -1,0 +1,297 @@
+scalar AWSDate
+
+scalar AWSDateTime
+
+scalar AWSEmail
+
+scalar AWSIPAddress
+
+scalar AWSJSON
+
+scalar AWSPhone
+
+scalar AWSTime
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+type Api @aws_lambda
+@aws_api_key {
+	id: ID!
+	title: String
+	developer: User
+	description: String
+	saasType: [ApiSaasType]
+	image: String
+	status: ApiStatus
+	creationDate: AWSTimestamp
+	type: ApiType
+}
+
+enum ApiSaasType {
+	CRM
+	ERP
+	ACCOUNTING
+	PM
+	CMS
+	COMMUNICATION
+	ECOMMERCE
+	HRM
+	PAYMENT_GATEWAY
+	BILLING
+	FINANCE
+	EDUCATION
+	MEDICAL
+	MUSIC
+	NEWS
+	SOCIAL_NETWORKING
+	WEATHER
+	LIFESTYLE
+	PRODUCTIVITY
+	SPORTS
+	TRAVEL
+	FOOD
+	PHOTO_VIDEO
+	UTILITIES
+	DATA
+	AI
+	IOT
+	BLOCKCHAIN_CRYPTO
+	BUSINESS
+	REFERENCE
+	HEALTH_FITNESS
+}
+
+enum ApiStatus {
+	UNDERDEVELOPMENT
+	PUBLIC
+}
+
+type ApiSubscription @aws_lambda
+@aws_api_key {
+	id: ID!
+	creationDate: AWSTimestamp
+	version: ApiVersion
+	subscriptionToken: String
+	type: SubscriptionType
+}
+
+enum ApiType {
+	GRAPHQL
+	OPENAPI
+}
+
+interface ApiVersion {
+	id: ID!
+	api: Api
+	status: ApiVersionStatus
+	dateCreated: AWSTimestamp
+	datePublished: AWSTimestamp
+	versionNumber: Int
+	releaseNotes: String
+	subscriptions: [ApiSubscription]
+	apiToken: String
+}
+
+enum ApiVersionStatus {
+	PUBLISHED
+	UNPUBLISHED
+}
+
+type ApiVersionsListOutput @aws_lambda
+@aws_api_key {
+	totalCount: Int!
+	data: [ApiVersion]!
+}
+
+type ApisListOutput @aws_lambda {
+	totalCount: Int!
+	data: [Api]!
+}
+
+input CreateApiInput {
+	apiId: String!
+	title: String!
+	image: String
+	description: String
+	saasType: [ApiSaasType!]!
+	# max 3
+	type: ApiType!
+	releaseNotes: String
+	openApiDef: String
+	apiUrl: AWSURL!
+	graphQlSchema: String
+}
+
+type DecodedAccessToken {
+	payload: accessTokenPayload!
+	iat: Int
+	exp: Int
+}
+
+input GetApiVersionsInput {
+	apiId: ID!
+	pagination: Pagination
+}
+
+input GetMyApisInput {
+	pagination: Pagination
+	apiSaasType: [ApiSaasType]
+	apiStatus: ApiStatus
+}
+
+input GetPublicApisInput {
+	pagination: Pagination
+	apiSaasType: [ApiSaasType]
+}
+
+type GraphqlApiVersion implements ApiVersion @aws_api_key
+@aws_lambda {
+	id: ID!
+	#completed
+	api: Api
+	#completed
+	status: ApiVersionStatus
+	#completed
+	dateCreated: AWSTimestamp
+	#completed
+	datePublished: AWSTimestamp
+	#completed
+	versionNumber: Int
+	#completed
+	releaseNotes: String
+	#completed
+	subscriptions: [ApiSubscription]
+	apiToken: String
+	#completed
+	graphQlSchema: String
+	#completed
+	apiUrl: AWSURL
+}
+
+type Mutation {
+	createApi(input: CreateApiInput): ApiVersion!
+		@aws_lambda
+@microService(name: "Api")
+	signup(input: signupInput!): UserAuth!
+		@aws_api_key
+@microService(name: "MetaMaskAuth")
+	refreshAccessToken(input: refreshAccessTokenInput!): String!
+		@aws_api_key
+@microService(name: "MetaMaskAuth")
+	completeUserProfile(input: completeUserProfileInput!): User
+		@aws_lambda
+@microService(name: "MetaMaskAuth")
+}
+
+type OpenApiVersion implements ApiVersion @aws_api_key
+@aws_lambda {
+	id: ID!
+	api: Api
+	status: ApiVersionStatus
+	dateCreated: AWSTimestamp
+	datePublished: AWSTimestamp
+	versionNumber: Int
+	releaseNotes: String
+	subscriptions: [ApiSubscription]
+	apiToken: String
+	openApiDef: String
+	apiUrl: AWSURL
+}
+
+input Pagination {
+	pageSize: Int
+	pageNumber: Int
+}
+
+type Query {
+	getMyApis(input: GetMyApisInput): ApisListOutput!
+		@aws_lambda
+@microService(name: "Api")
+	#getPublicApis(input: GetPublicApisInput): ApisListOutput!            @microService(name:"Api")
+	getApiDetails(apiId: ID!): Api!
+		@aws_lambda
+@aws_api_key
+@microService(name: "Api")
+	getApiVersions(input: GetApiVersionsInput): ApiVersionsListOutput!
+		@aws_lambda
+@aws_api_key
+@microService(name: "Api")
+	getApiVersionDetails(versionId: ID!): ApiVersion!
+		@aws_lambda
+@microService(name: "Api")
+	getSubscriptionDetails(subscriptionId: ID!): ApiSubscription!
+		@aws_lambda
+@microService(name: "Api")
+	getUserAuthData(input: getUserAuthDataInput!): UserAuth!
+		@aws_api_key
+@microService(name: "MetaMaskAuth")
+	login(input: loginInput!): String!
+		@aws_api_key
+@microService(name: "MetaMaskAuth")
+	authorizeUser(input: authorizeUserInput!): DecodedAccessToken!
+		@aws_api_key
+@microService(name: "MetaMaskAuth")
+}
+
+enum SubscriptionType {
+	NORMAL
+	TESTING
+}
+
+type User @aws_lambda
+@aws_api_key {
+	id: ID!
+	firstName: String
+	lastName: String
+	secretText: String
+	creationDate: AWSTimestamp
+	authData: UserAuth
+}
+
+type UserAuth @aws_lambda
+@aws_api_key {
+	nonce: String
+	publicAddress: ID!
+	creationDate: AWSTimestamp
+}
+
+type VersionsListOutput {
+	totalCount: Int!
+	data: [ApiVersion]!
+}
+
+type accessTokenPayload {
+	username: ID
+	firstName: String
+	lastName: String
+	publicAddress: String!
+}
+
+input authorizeUserInput {
+	accessToken: String!
+}
+
+input completeUserProfileInput {
+	firstName: String!
+	lastName: String!
+	username: ID!
+}
+
+input getUserAuthDataInput {
+	publicAddress: String!
+}
+
+input loginInput {
+	publicAddress: String!
+	signature: String!
+}
+
+input refreshAccessTokenInput {
+	accessToken: String!
+}
+
+input signupInput {
+	publicAddress: String!
+}

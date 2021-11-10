@@ -1,0 +1,64 @@
+{
+  "vpc-provider:account=625562161580:filter.isDefault=false:region=us-east-1:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-066783df63bd633c0",
+    "vpcCidrBlock": "10.0.0.0/16",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Ingress",
+        "type": "Isolated",
+        "subnets": [
+          {
+            "subnetId": "subnet-0d2918a028182c4f7",
+            "cidr": "10.0.0.0/24",
+            "availabilityZone": "us-east-1a",
+            "routeTableId": "rtb-08e38464e3fa2d2b2"
+          },
+          {
+            "subnetId": "subnet-0aba3c0d3d2bc786c",
+            "cidr": "10.0.1.0/24",
+            "availabilityZone": "us-east-1b",
+            "routeTableId": "rtb-0b99e9f73074ba340"
+          }
+        ]
+      }
+    ]
+  },
+  "security-group:account=625562161580:region=us-east-1": {
+    "securityGroupId": "sg-01e2f60f2b1a86033",
+    "allowAllOutbound": false
+  },
+  "security-group:account=409563091348:region=us-east-1": {
+    "securityGroupId": "sg-5f9fbf6a",
+    "allowAllOutbound": false
+  },
+  "vpc-provider:account=625562161580:filter.isDefault=false:filter.vpc-id=vpc-066783df63bd633c0:region=us-east-1:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-066783df63bd633c0",
+    "vpcCidrBlock": "10.0.0.0/16",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Ingress",
+        "type": "Isolated",
+        "subnets": [
+          {
+            "subnetId": "subnet-0d2918a028182c4f7",
+            "cidr": "10.0.0.0/24",
+            "availabilityZone": "us-east-1a",
+            "routeTableId": "rtb-08e38464e3fa2d2b2"
+          },
+          {
+            "subnetId": "subnet-0aba3c0d3d2bc786c",
+            "cidr": "10.0.1.0/24",
+            "availabilityZone": "us-east-1b",
+            "routeTableId": "rtb-0b99e9f73074ba340"
+          }
+        ]
+      }
+    ]
+  },
+  "security-group:account=625562161580:region=us-east-1:securityGroupId=sg-030ce95707d3168bb": {
+    "securityGroupId": "sg-030ce95707d3168bb",
+    "allowAllOutbound": false
+  }
+}

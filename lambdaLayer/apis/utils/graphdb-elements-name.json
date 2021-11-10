@@ -1,0 +1,329 @@
+{
+  "vertex": {
+    "api": {
+      "L": "api",
+      "prop": {
+        "id": {
+          "N": "id"
+        },
+        "title": {
+          "N": "title"
+        },
+        "description": {
+          "N": "description"
+        },
+        "image":{
+          "N":"image"
+        },
+        "creationDate": {
+          "N": "creationDate"
+        }
+      }
+    },
+
+    "graphqlApiVersion": {
+      "L": "graphqlApiVersion",
+      "prop": {
+        "secretText":{
+          "N":"secretText"
+        },
+        "id": {
+          "N": "id"
+        },
+        "versionNumber": {
+          "N": "versionNumber"
+        },
+        "releaseNotes": {
+          "N": "releaseNotes"
+        },
+        "apiToken": {
+          "N": "apiToken"
+        },
+        "dateCreated": {
+          "N": "dateCreated"
+        },
+        "datePublished": {
+          "N": "datePublished"
+        },
+        "versionStatus": {
+          "N": "versionStatus"
+        },
+        "graphQlSchema": {
+          "N": "graphQlSchema"
+        },
+        "versionType":{
+          "N":"versionType"
+        },
+        "apiUrl": {
+          "N": "apiUrl"
+        }
+      }
+    },
+
+    "userAuthentication": {
+      "L": "userAuthentication",
+      "prop": {
+        "id": {
+          "N": "id"
+        },
+        "nonce": {
+          "N": "nonce"
+        },
+        "secretText": {
+          "N": "secretText"
+        },
+        "dateCreated": {
+          "N": "dateCreated"
+        }
+
+      }
+    },
+    "user": {
+      "L": "user",
+      "prop": {
+        "id": {
+          "N": "id"
+        },
+        "dateCreated": {
+          "N": "dateCreated"
+        },
+        "secretText": {
+          "N": "secretText"
+        },
+        "firstName": {
+          "N": "firstName"
+        },
+        "lastName": {
+          "N": "lastName"
+        },
+        "authSecretText": {
+          "N": "authSecretText"
+        },
+        "publicAddress": {
+          "N": "publicAddress"
+        },
+        "nonce": {
+          "N": "nonce"
+        }
+      }
+    },
+
+    
+    "openApiVersion": {
+      "L": "openApiVersion",
+      "prop": {
+        "secretText":{
+          "N":"secretText"
+        },
+        "id": {
+          "N": "id"
+        },
+        "versionNumber": {
+          "N": "versionNumber"
+        },
+        "releaseNotes": {
+          "N": "releaseNotes"
+        },
+        "apiToken": {
+          "N": "apiToken"
+        },
+        "dateCreated": {
+          "N": "dateCreated"
+        },
+        "datePublished": {
+          "N": "datePublished"
+        },
+        "versionStatus": {
+          "N": "versionStatus"
+        },
+        "openDef": {
+          "N": "openDef"
+        },
+        "apiUrl": {
+          "N": "apiUrl"
+        }
+      }
+    },
+
+    "apiSaasType": {
+      "L": "apiSaasType",
+      "prop": {
+        "id": {
+          "N": "id",
+          "V": {
+            "apiType_CRM": "apiType_CRM",
+            "apiType_ERP": "apiType_ERP",
+            "apiType_ACCOUNTING": "apiType_ACCOUNTING",
+            "apiType_PM": "apiType_PM",
+            "apiType_CMS": "apiType_CMS",
+            "apiType_COMMUNICATION": "apiType_COMMUNICATION",
+            "apiType_ECOMMERCE": "apiType_ECOMMERCE",
+            "apiType_HRM": "apiType_HRM",
+            "apiType_PAYMENT_GATEWAY": "apiType_PAYMENT_GATEWAY",
+            "apiType_BILLING": "apiType_BILLING",
+            "apiType_FINANCE": "apiType_FINANCE",
+            "apiType_EDUCATION": "apiType_EDUCATION",
+            "apiType_MEDICAL": "apiType_MEDICAL",
+            "apiType_MUSIC": "apiType_MUSIC",
+            "apiType_NEWS": "apiType_NEWS",
+            "apiType_SOCIAL_NETWORKING": "apiType_SOCIAL_NETWORKING",
+            "apiType_WEATHER": "apiType_WEATHER",
+            "apiType_LIFESTYLE": "apiType_LIFESTYLE",
+            "apiType_PRODUCTIVITY": "apiType_PRODUCTIVITY",
+            "apiType_SPORTS": "apiType_SPORTS",
+            "apiType_TRAVEL": "apiType_TRAVEL",
+            "apiType_FOOD": "apiType_FOOD",
+            "apiType_PHOTO_VIDEO": "apiType_PHOTO_VIDEO",
+            "apiType_UTILITIES": "apiType_UTILITIES",
+            "apiType_DATA": "apiType_DATA",
+            "apiType_AI": "apiType_AI",
+            "apiType_IOT": "apiType_IOT",
+            "apiType_BLOCKCHAIN_CRYPTO": "apiType_BLOCKCHAIN_CRYPTO",
+            "apiType_BUSINESS": "apiType_BUSINESS",
+            "apiType_REFERENCE": "apiType_REFERENCE",
+            "apiType_HEALTH_FITNESS": "apiType_HEALTH_FITNESS"
+          }
+        },
+        "name": {
+          "N": "name",
+          "V": {
+            "CRM": "CRM",
+            "ERP": "ERP",
+            "ACCOUNTING": "ACCOUNTING",
+            "PM": "PM",
+            "CMS": "CMS",
+            "COMMUNICATION": "COMMUNICATION",
+            "ECOMMERCE": "ECOMMERCE",
+            "HRM": "HRM",
+            "PAYMENT_GATEWAY": "PAYMENT_GATEWAY",
+            "BILLING": "BILLING",
+            "FINANCE": "FINANCE",
+            "EDUCATION": "EDUCATION",
+            "MEDICAL": "MEDICAL",
+            "MUSIC": "MUSIC",
+            "NEWS": "NEWS",
+            "SOCIAL_NETWORKING": "SOCIAL_NETWORKING",
+            "WEATHER": "WEATHER",
+            "LIFESTYLE": "LIFESTYLE",
+            "PRODUCTIVITY": "PRODUCTIVITY",
+            "SPORTS": "SPORTS",
+            "TRAVEL": "TRAVEL",
+            "FOOD": "FOOD",
+            "PHOTO_VIDEO": "PHOTO_VIDEO",
+            "UTILITIES": "UTILITIES",
+            "DATA": "DATA",
+            "AI": "AI",
+            "IOT": "IOT",
+            "BLOCKCHAIN_CRYPTO": "BLOCKCHAIN_CRYPTO",
+            "BUSINESS": "BUSINESS",
+            "REFERENCE": "REFERENCE",
+            "HEALTH_FITNESS": "HEALTH_FITNESS"
+          }
+        }
+      }
+    },
+    "versionStatus": {
+      "L": "versionStatus",
+      "prop": {
+        "id": {
+          "N": "id",
+          "V": {
+            "versionStatusUnpublished": "versionStatusUnpublished",
+            "versionStatusPublished": "versionStatusPublished"
+          }
+        },
+        "name": {
+          "N": "name",
+          "V": {
+            "UNPUBLISHED": "UNPUBLISHED",
+            "PUBLISHED": "PUBLISHED"
+          }
+        }
+      }
+    },
+    
+    "apiSubscription": {
+      "L": "apiSubscription",
+      "prop": {
+        "id": {
+          "N": "id"
+        },
+        "subscriptionToken": {
+          "N": "subscriptionToken"
+        },
+        "paymentDayEveryMonth":{
+          "N":"paymentDayEveryMonth"
+        },
+        "subscriptionType": {
+          "N": "subscriptionType"
+        },
+        "creationDate": {
+          "N": "creationDate"
+        }
+      }
+    },
+   
+    "subscriptionType": {
+      "L": "subscriptionType",
+      "prop": {
+        "id": {
+          "N": "id",
+          "V": {
+            "subscriptionType_normal": "subscriptionType#NORMAL",
+            "subscriptionType_testing": "subscriptionType#TESTING"
+          }
+        },
+        "name": {
+          "N": "name",
+          "V": {
+            "NORMAL": "NORMAL",
+            "TESTING": "TESTING"
+          }
+        }
+      }
+    }
+  },
+  
+  "edge": {
+    "creates": {
+      "L": "creates",
+      "prop": {
+        "timeStamp":{
+          "N":"timeStamp"
+        }
+      }
+    },
+    "subscribes": {
+      "L": "subscribes",
+      "prop": {}
+    },
+    "hasType": {
+      "L": "hasType",
+      "prop": {}
+    },
+    "hasVersion": {
+      "L": "hasVersion",
+      "prop": {
+        "timeStamp":{
+          "N":"timeStamp"
+        }
+      }
+    }, 
+    "hasStatus": {
+      "L": "hasStatus",
+      "prop": {
+        "timeStamp":{
+          "N":"timeStamp"
+        }
+      }
+    },
+    "hasSubscription": {
+      "L": "hasSubscription",
+      "prop": {}
+    },
+    "hasAuthentication": {
+      "L": "hasAuthentication",
+      "prop": {}
+    }
+  }
+}
